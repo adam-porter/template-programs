@@ -16,7 +16,7 @@ const Sidebar = ({ activeFilter, onFilterChange }) => {
       <style>
         {`
           .sidebar {
-            width: 238px;
+            width: 262px;
             background-color: #1a1f28;
             padding: var(--u-space-two, 32px) 0;
             display: flex;

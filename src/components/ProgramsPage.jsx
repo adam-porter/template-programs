@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Sidebar from './Sidebar'
+import ProgramsHeader from './ProgramsHeader'
 import ProgramListItem from './ProgramListItem'
 
 /**
@@ -105,57 +106,9 @@ const ProgramsPage = () => {
             display: flex;
             flex-direction: column;
             background-color: #ffffff;
+            padding: var(--u-space-one-and-half, 32px) var(--u-space-three, 48px);
           }
 
-          .programs-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: var(--u-space-two, 32px) var(--u-space-three, 48px);
-            border-bottom: 1px solid var(--u-color-line-subtle, #c4c6c8);
-          }
-
-          .programs-title {
-            font-family: var(--u-font-body);
-            font-weight: var(--u-font-weight-bold, 700);
-            font-size: var(--u-font-size-xlarge, 20px);
-            color: var(--u-color-base-foreground-contrast, #071c31);
-            margin: 0;
-          }
-
-          .programs-actions {
-            display: flex;
-            gap: var(--u-space-one, 16px);
-          }
-
-          .btn {
-            font-family: var(--u-font-body);
-            font-weight: var(--u-font-weight-bold, 700);
-            font-size: var(--u-font-size-default, 16px);
-            padding: var(--u-space-three-quarter, 12px) var(--u-space-one-and-half, 24px);
-            border: none;
-            border-radius: var(--u-border-radius-small, 2px);
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-          }
-
-          .btn-primary {
-            background-color: var(--u-color-emphasis-background-contrast, #0273e3);
-            color: #ffffff;
-          }
-
-          .btn-primary:hover {
-            background-color: #0259b8;
-          }
-
-          .btn-secondary {
-            background-color: #7a8191;
-            color: #ffffff;
-          }
-
-          .btn-secondary:hover {
-            background-color: #626972;
-          }
 
           .programs-list-container {
             flex: 1;
@@ -206,17 +159,21 @@ const ProgramsPage = () => {
         {/* Main Content */}
         <div className="programs-content">
           {/* Header */}
-          <header className="programs-header">
-            <h1 className="programs-title">{getSectionTitle()}</h1>
-            <div className="programs-actions">
-              <button className="btn btn-primary">
-                Add Program
-              </button>
-              <button className="btn btn-secondary">
-                Manage
-              </button>
-            </div>
-          </header>
+          <ProgramsHeader
+            title={getSectionTitle()}
+            buttons={[
+              {
+                label: 'Add Program',
+                variant: 'primary',
+                onClick: () => console.log('Add Program clicked')
+              },
+              {
+                label: 'Manage',
+                variant: 'secondary',
+                onClick: () => console.log('Manage clicked')
+              }
+            ]}
+          />
 
           {/* Programs List */}
           <div className="programs-list-container">
